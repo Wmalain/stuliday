@@ -1,0 +1,19 @@
+->1- Créé une page create anonce.php
+->2- traitement de formulaire dans une page create_annonce_post.php
+->3- relier la création d'annonce a l'utilisateur connecté (via un token de session)
+->4- NE PAS OUBLIER L'UPLOAD D'IMAGE (extension et taille modifiée)
+->5- (peut etre fait en premier) Crée une fonction des annonces. display annonce
+->6- (peut etre fait en premier) Crée un affichage de l'annonce sur une nouvelle page (1seule).
+
+
+->7- Affichage des annonces par l'utilisateur sur la page de profil( une autre fonction) qui incluent deux boutons edit et delete.
+->*8*- codes les delete et edit (nouvelles fonctions).
+->**9** permettre de modifier les champs dans le formulaire profil de ces morts.
+***10*** Pouvoir reserver
+****11**** voir mes reservations
+
+Titre / description / ville / image / adresse /prix / date de début / date de fin
+
+
+
+&& !empty($_POST['description']) && !empty($_POST['ville']) && !empty($_POST['adresse']) && !empty($_POST['prix']) && !empty($_POST['dated']) && !empty($_POST['datef']) && !empty($_POST['picture'])
