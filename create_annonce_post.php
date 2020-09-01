@@ -7,8 +7,7 @@ require('inc/function.php');
 // }
 
     if(isset($_POST['submit_annonce'])){
-        var_dump($_POST);
-        var_dump($_FILES);
+        
         $title = ($_POST['title']);
         $description = ($_POST['description']);
         $city = ($_POST['city']);
@@ -48,10 +47,14 @@ require('inc/function.php');
                     $sth->bindValue(':end_date',$end_date);
 
                     $sth->execute();
-                    header("Location:create_annonce.php");
+                    header("Location:profile.php");
 
                 }
             }
+        }else{
+            echo "vérifier le format ou le poid de votre photo";
+            header("Location:profile.php");
+
         }
     }
      

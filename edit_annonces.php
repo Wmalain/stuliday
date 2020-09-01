@@ -42,7 +42,7 @@
             <div class="form-row">
                 <div class="form-group col-md-12">
                         <label for="desc_annonce">Description de l'annonce</label>
-                        <textarea class="form-control" name="description" rows="3" placeholder ="Description détaillée de l'annonce" id="desc_annonce" required > <?php echo $row[4]; ?> </textarea>
+                        <textarea class="form-control" name="description" rows="3" placeholder ="Description détaillée de l'annonce" id="desc_annonce" required > <?php echo $row[2]; ?> </textarea>
                 </div>
             </div>
             <div class="form-row">

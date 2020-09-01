@@ -40,7 +40,8 @@
 
         Function displayAllannonce(){
             global $db;
-            $sql = $db->query("SELECT * from annonces");
+            $id = $_SESSION['id'];
+            $sql = $db->query("SELECT * from annonces WHERE author_article != $id AND active = 1");
             $sql ->setFetchMode(PDO::FETCH_ASSOC);
 
             while($row = $sql ->fetch()){
@@ -96,6 +97,7 @@
             <div class="col-4 text-center"> 
                 <p> Date de sortie </br> <?= $row['end_date']?></p>
             </div>
+            <div class="col-12 text-center"> <a name="reza" href="reza_post.php?id=<?=$row['id']?>">reserver</a></div>
             <div class="col-12 text-center"> <a href="annonces.php">retour aux annonces</a>
             </div>
             <?php
@@ -147,3 +149,44 @@
         }
 
 ?>
+
+<?php
+        function reza($id_annonce, $id_user){
+            global $db;
+            $sth=$db->prepare("INSERT INTO reservations (id_user,id_annonce) VALUES (:id_user, :id_annonce)");
+    
+
+            $sth->bindValue(':id_user',$id_user);
+            $sth->bindValue(':id_annonce',$id_annonce);
+
+
+            $sth->execute();
+            $sth2 = $db->prepare("UPDATE annonces SET active = 0 WHERE id=$id_annonce");
+            $sth2->execute();
+    
+    
+        }
+?>
+
+<?php
+        function displayreza($id){
+
+            global $db;
+            $sql = $db-> query("SELECT * FROM annonces AS a LEFT JOIN reservations AS r ON r.id_annonce = a.id WHERE id_user = $id");
+            $sql ->setFetchMode(PDO::FETCH_ASSOC);          
+            while ($row = $sql->fetch()) {
+?>
+         <div class="container">
+            <div class="text-center">
+                <div class="card p-1 m-2">
+                    <h2><?= $row['title']?> à <?= $row['city']?></h2>
+                    <p> Du : <?= $row['start_date']?></p>
+                    <p> Au : <?= $row['end_date']?></p>
+                    <a href="delete_reza.php?id=<?= $row['id_annonce']?>">Annuler la réservation</a>
+                </div>
+            </div>
+        </div>
+
+<?php
+            }
+        }

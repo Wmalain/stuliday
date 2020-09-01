@@ -1,13 +1,15 @@
 <?php 
 require('inc/connect.php');
 require('inc/function.php');
+include('assets/nav.php');
+require('assets/head.php');
 
 // if(!empty($_SESSION['id'])){
 //     header ("Location:index.php?action=dc");
 // }
 
     if(isset($_POST['update-annonce'])){
-        var_dump($_POST);
+        
         $title = ($_POST['title']);
         $description = ($_POST['description']);
         $city = ($_POST['city']);
@@ -52,8 +54,9 @@ require('inc/function.php');
 
 
                 }
+            }else{
+                header("Location:profile.php");
             }
         }
     }
-     
         ?>

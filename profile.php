@@ -12,6 +12,10 @@
     $sql2 = $db->query("SELECT * FROM `users` WHERE id = $userid");
     $row = $sql2->fetch();
 
+    $sql3 = $db->query("SELECT COUNT(*) FROM `reservations` WHERE id_user = $userid");
+    $compt = $sql3->fetchColumn();
+
+
     if (isset($_POST['submit_update']) && isset($_POST['email'])){
         $user_email = htmlspecialchars($_POST['email']);
         $lname = htmlspecialchars($_POST['lastname']);
@@ -65,8 +69,8 @@
                 <a  class="btn btn-primary mb-3 <?php  if($compteur < 1){ echo 'disabled'; } ?>"
                     data-toggle="modal" data-target="#listingAnnonces">Voir mes annonces  <span class="badge badge-primary badge-pill"><?php echo $compteur; ?></span>
                     </a>
-                <a href="#" class="btn btn-primary mb-3 <?php  if($compt < 1){ echo 'disabled'; } ?>"
-                    data-toggle="modal" data-target="#listingResa">Voir mes réservations <span class="badge badge-primary badge-pill">5</span></a>
+                <a class="btn btn-primary mb-3 <?php  if($compt < 1){ echo 'disabled'; } ?>"
+                    data-toggle="modal" data-target="#listingResa">Voir mes réservations <span class="badge badge-primary badge-pill"><?php echo $compt; ?></span></a>
             </div>
             <div class="col-md-12 text-center pt-5 my-2">
                 <a class="btn btn-info back" href="annonces.php">Retour aux annonces</a>
@@ -96,5 +100,21 @@
     </div>
 </div>
 
+<div class="modal fade" id="listingResa" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog listings" role="document">
+        <div class="modal-content text-center">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Mes annonces</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+            <?= displayreza($userid); ?>
+            </div>
+        </div>
+    </div>
+</div>
 
 <?php require('assets/footer.php'); ?>

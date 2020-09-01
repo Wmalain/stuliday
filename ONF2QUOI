@@ -9,11 +9,11 @@
 ->7- Affichage des annonces par l'utilisateur sur la page de profil( une autre fonction) qui incluent deux boutons edit et delete.
 ->*8*- codes les delete et edit (nouvelles fonctions).
 ->**9** permettre de modifier les champs dans le formulaire profil de ces morts.
-***10*** Pouvoir reserver
-****11**** voir mes reservations
-
-Titre / description / ville / image / adresse /prix / date de début / date de fin
-
+->***10*** Pouvoir reserver.
+->****11**** voir mes reservations.
+-> *****12***** pouvoir annuler la reservation et supprimer de la bdd les infos.
 
 
-&& !empty($_POST['description']) && !empty($_POST['ville']) && !empty($_POST['adresse']) && !empty($_POST['prix']) && !empty($_POST['dated']) && !empty($_POST['datef']) && !empty($_POST['picture'])
+
+
+

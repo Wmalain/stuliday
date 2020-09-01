@@ -46,6 +46,7 @@
             $_SESSION['email'] = $db_email;
             
             $message = "<div class ='alert alert-success'> Vous êtes bien connectés </div>";
+            header("Location:profile.php");
         }else{
             $message = "<div class ='alert alert-danger'> Mot de passe incorrect.</div>";
         }
