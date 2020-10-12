@@ -88,3 +88,27 @@ if (isset($_GET['e']) && $_GET['e'] == '1'){
         </div>
 </section>
 <?php require ('assets/footer.php') ?>
+
+
+
+
+<form action="" method="POST" enctype="multipart/form-data">
+            <div>
+                <div>
+                <label for="titre">titre annonce</label>
+                <input type="text" class="form-control" name="title" id="title_annonce" placeholder="votre annonce">
+                </div>
+                <div>
+                <label for="type_bien">type de bien</label>
+                <input type="text" class="form-control" name="type_de_bien" id="type_de_bien" placeholder="maison ou appartement">
+                </div>
+                <div>
+                <label for="nbr_pieces">nombre de piéces </label>
+                <input type="text" class="form-control" name="nombre_pieces" id="nombre_pieces" placeholder="combien de piéce">
+                </div>
+                <div>
+                <label for="description">description </label>
+                <textarea class="form-control" name="description" rows="3" placeholder ="Description détaillée de l'annonce" id="desc_annonce" required></textarea>
+                <input type="submit" class="input_submit" name ="submit_annonce" value="Créer votre annonce"/>
+
+</form>

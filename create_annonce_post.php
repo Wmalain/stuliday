@@ -8,16 +8,16 @@ require('inc/function.php');
 
     if(isset($_POST['submit_annonce'])){
         
-        $title = ($_POST['title']);
-        $description = ($_POST['description']);
-        $city = ($_POST['city']);
-        $category = ($_POST['category']);
+        $title = htmlspecialchars($_POST['title']);
+        $description = htmlspecialchars($_POST['description']);
+        $city = htmlspecialchars($_POST['city']);
+        $category = htmlspecialchars($_POST['category']);
         $file= $_FILES['img_url'];
-        $address = ($_POST['address']);
-        $price = ($_POST['price']);
+        $address = htmlspecialchars($_POST['address']);
+        $price = htmlspecialchars($_POST['price']);
         $user_id = ($_SESSION['id']);
-        $start_date = ($_POST['start_date']);
-        $end_date = ($_POST['end_date']);
+        $start_date = htmlspecialchars($_POST['start_date']);
+        $end_date = htmlspecialchars($_POST['end_date']);
 
         if($file['size'] <= 1000000){
 
@@ -47,7 +47,7 @@ require('inc/function.php');
                     $sth->bindValue(':end_date',$end_date);
 
                     $sth->execute();
-                    header("Location:profile.php");
+                    header("Location:index.php");
 
                 }
             }
